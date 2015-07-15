@@ -3,5 +3,5 @@ class Like
 
   property :id,    Serial
 
-
+  belongs_to :link
 end
