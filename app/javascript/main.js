@@ -1,5 +1,5 @@
 
-  (function() {
+(function() {
     var cx = '016844719156761315131:vmev40tl4gq';
     var gcse = document.createElement('script');
     gcse.type = 'text/javascript';
@@ -8,4 +8,23 @@
         '//cse.google.com/cse.js?cx=' + cx;
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(gcse, s);
-  })();
+})();
+
+
+document.addEventListener("click",handler,true);
+
+function handler(e){
+    if(e.target.className=="gs-title" || e.target.className=='gs-image') {
+    e.stopPropagation();
+    e.preventDefault();
+    embedCode = e.target.getAttribute('data-ctorig').split('=')[1]
+    $.post('url', {code: embedCode})
+    }
+}
+
+
+
+
+
+
+

@@ -70,6 +70,8 @@ main {
   width: 425px;
   height: 280px;
   background-color: rgba(119,136,152,1);
+  border-radius: 10px;
+  opacity: 0.8;
 
 }
 
@@ -94,6 +96,12 @@ main {
 #logo_container {
   float: left;
   display: inline;
+}
+
+#video_player {
+  position: center;
+  position: relative;
+  z-index: 2;
 }
 
 
