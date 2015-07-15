@@ -56,17 +56,27 @@ header {
 main {
   margin: auto;
   background-color: rgba(228,228,222,1);
-  height: 1000px;
   width: 100%;
   padding: 30px;
 }
 
+.wrap {
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+  display: inline-block;
+  width: 425px;
+  height: 280px;
+  background-color: rgba(119,136,152,1);
+
+}
+
 .video {
   margin: auto;
-  padding: 10px 5px;
   display: inline-block;
-  float: left;
 }
+
+
 
 #logo {
   margin-top: 18px;
