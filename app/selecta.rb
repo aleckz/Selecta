@@ -46,9 +46,9 @@ class Selecta < Sinatra::Base
   end
 
   post '/like' do
-    like = Like.new(
-      user_id: )
-
+    like = Like.create(
+      user_id: session[:user_id],
+      link_id: params[:link_id])
   end
 
 end
