@@ -17,7 +17,7 @@ class Selecta < Sinatra::Base
     erb :index
   end
 
-  post '/users' do
+  post '/user' do
     user = User.new(
       username: params[:username],
       email:    params[:email   ])
@@ -31,7 +31,7 @@ class Selecta < Sinatra::Base
     erb :index
   end
 
-  post '/links' do
+  post '/link' do
     link = Link.new(
       title:   params[:title   ],
       url:     params[:url     ],
@@ -43,6 +43,12 @@ class Selecta < Sinatra::Base
     end
 
     erb :index
+  end
+
+  post '/like' do
+    like = Like.new(
+      user_id: )
+
   end
 
 end
