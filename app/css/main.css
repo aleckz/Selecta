@@ -26,8 +26,12 @@ body {
     font-size: 2em;
 }
 
+#title {
+  font-family: 'Delius Unicase', cursive;
+}
+
 header {
-  height: 80px;
+  height: 140px;
 }
 
 
@@ -38,6 +42,7 @@ header {
   -o-background-size: cover;
   background-size: cover;
   height: 190px;
+  border-top: 15px solid rgba(228,228,222,1);
   border-bottom: 15px solid rgba(228,228,222,1);
 }
 
@@ -62,7 +67,7 @@ main {
 }
 
 #logo {
-  margin-top: 10px;
+  margin-top: 18px;
   width: 50px;
 }
 
