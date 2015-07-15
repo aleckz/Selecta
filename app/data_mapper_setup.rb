@@ -1,4 +1,4 @@
-env = env['test'] || 'development'
+env = ENV['RACK_ENV'] || 'development'
 
 
 DataMapper::Logger.new($stdout, :debug)
