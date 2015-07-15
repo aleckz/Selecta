@@ -1,8 +1,14 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './data_mapper_setup'
 
 class Selecta < Sinatra::Base
   
+  enable :sessions
+  set :session_secret, 'secret'
+  register Sinatra::Flash
+
+
   run! if app_file == $0
   
   get '/' do
@@ -11,12 +17,13 @@ class Selecta < Sinatra::Base
     erb :index
   end
 
-  post '/user' do
+  post '/users' do
     user = User.new(
       username: params[:username],
       email:    params[:email   ])
-    if user.save?
-      flash[:notice] = "Welcome back"
+    if user.save
+      session[:user_id] = user.id
+      flash[:notice] = "Welcome user"
     else
       flash.now[:errors] = user.errors.full_messages
     end
@@ -24,7 +31,18 @@ class Selecta < Sinatra::Base
     erb :index
   end
 
-  post '/' do
+  post '/links' do
+    link = Link.new(
+      title:   params[:title   ],
+      url:     params[:url     ],
+      user_id: session[:user_id])
+    if link.save
+      flash[:notice] = 'Submission successful'
+    else
+      flash.now[:errors] = user.errors.full_messages
+    end
+
+    erb :index
   end
 
 end
