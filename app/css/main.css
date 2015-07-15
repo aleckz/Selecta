@@ -54,10 +54,10 @@ header {
 
 
 main {
-  margin: auto;
   background-color: rgba(228,228,222,1);
   width: 100%;
-  padding: 30px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .wrap {
