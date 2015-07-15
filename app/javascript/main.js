@@ -11,17 +11,17 @@
 })();
 
 
-document.addEventListener("click",handler,true);
 
 function handler(e){
     if(e.target.className=="gs-title" || e.target.className=='gs-image') {
-    e.stopPropagation();
-    e.preventDefault();
-    embedCode = e.target.getAttribute('data-ctorig').split('=')[1]
-    $.post('url', {code: embedCode})
+        e.stopPropagation();
+        e.preventDefault();
+        embedCode = e.target.getAttribute('data-ctorig').split('=')[1];
+        $.post('/link', {url: embedCode});
     }
-}
+};
 
+document.addEventListener("click", handler, true);
 
 
 
