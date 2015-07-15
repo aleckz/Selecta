@@ -24,5 +24,52 @@
 
 body {
     font-size: 2em;
-    background-color: grey;
 }
+
+header {
+  height: 80px;
+}
+
+
+#logo_banner {
+  background: url(../img/banner.jpg) no-repeat center top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 190px;
+  border-bottom: 15px solid rgba(228,228,222,1);
+}
+
+#search_frame {
+  height: 100px;
+
+}
+
+
+main {
+  margin: auto;
+  background-color: rgba(228,228,222,1);
+  height: 1000px;
+  width: 100%;
+  padding: 30px;
+}
+
+.video {
+  padding: 10px;
+  display: inline-block;
+  float: left;
+}
+
+#logo {
+  margin-top: 10px;
+  width: 50px;
+}
+
+
+
+
+
+
+
+
