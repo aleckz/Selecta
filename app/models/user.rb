@@ -1,10 +1,11 @@
-# require 'data_mapper'
+require 'data_mapper'
 
-# class User
-#   include DataMapper::Resource
+class User
+  include DataMapper::Resource
 
-#   property :id,       Serial
-#   property :username, String
-#   property :
+  property :id,       Serial
+  property :username, String
 
-# end
+  has n, :links
+  has n, :likes
+end

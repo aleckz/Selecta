@@ -8,5 +8,6 @@ class Link
   property :url,        String, required: true
   property :created_at, DateTime
 
-  has n, :likes
+  has n,      :likes
+  belongs_to  :user
 end
