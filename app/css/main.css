@@ -44,18 +44,20 @@ header {
   height: 190px;
   border-top: 15px solid rgba(228,228,222,1);
   border-bottom: 15px solid rgba(228,228,222,1);
-
 }
 
 #search_frame {
-  height: 100px;
-
+  height: 200px;
+  position: absolute;
+  z-index: 1;
+  margin-bottom: 50px;
 }
 
 
 main {
   background-color: rgba(228,228,222,1);
   width: 100%;
+  padding-top: 100px;
   padding-left: 10%;
   padding-right: 10%;
 }
