@@ -103,6 +103,7 @@ DEPENDENCIES
   capybara
   data_mapper
   dm-postgres-adapter
+  dm-timestamps
   rspec
   sinatra
 
