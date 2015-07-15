@@ -5,6 +5,7 @@ class User
 
   property :id,       Serial
   property :username, String
+  property :email,    String
 
   has n, :links
   has n, :likes
