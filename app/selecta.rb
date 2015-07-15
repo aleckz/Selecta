@@ -51,12 +51,12 @@ class Selecta < Sinatra::Base
       user_id: session[:user_id],
       link_id: params[:link_id]
     )
-    like.save unless already_liked params[:link_id]
+    like.save unless already_liked? params[:link_id]
 
     erb :index
   end
 
-  def already_liked link_id
+  def already_liked? link_id
     User.get(session[:user_id]).likes.any? do |like|
       like.link_id == link_id
     end
