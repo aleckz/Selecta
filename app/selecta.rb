@@ -35,7 +35,7 @@ class Selecta < Sinatra::Base
     link = Link.new(
       title:   params[:title   ],
       url:     params[:url     ],
-      user_id: params[:user_id]
+      user_id: current_user
     )
     if link.save
       flash[:notice] = 'Submission successful'
@@ -48,7 +48,7 @@ class Selecta < Sinatra::Base
 
   post '/like' do
     like = Like.new(
-      user_id: session[:user_id],
+      user_id: current_user,
       link_id: params[:link_id]
     )
     like.save unless already_liked? params[:link_id]
@@ -56,12 +56,15 @@ class Selecta < Sinatra::Base
     erb :index
   end
 
-  def already_liked? link_id
+  def already_liked? link_id_checked
     User.get(session[:user_id]).likes.any? do |like|
-      like.link_id == link_id
+      like.link_id == link_id_checked
     end
   end
 
+def current_user 
+  @user session[:user_id]
+end
 
   run! if app_file == $0
 end

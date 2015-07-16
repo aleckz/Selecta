@@ -18,7 +18,7 @@ function handler(e){
         // e.stopPropagation();
 
         var embedCode = e.target.getAttribute('data-ctorig').split('=')[1];
-        $.post('/link', {url: embedCode, user_id: '1'});
+        $.post('/link', {url: embedCode});
     }
 };
 
