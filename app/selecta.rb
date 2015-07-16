@@ -62,19 +62,13 @@ class Selecta < Sinatra::Base
   end
 
   post '/session' do
-    encrypted_password = User.authenticate params[:password]
+    user = User.authenticate params
 
-    user = User.(
-      username: params[:username],
-      password: encrypted_password
-    )
     if user
-    binding.pry
       session[:user_id] = user.id
       content_type :json
       {userRetreived: true}.to_json
     else
-    binding.pry
       content_type :json
       {userRetreived: false}.to_json
     end

@@ -22,8 +22,9 @@ class User
     self.password_digest = BCrypt::Password.create password
   end
 
-  def self.authenticate password
-    binding.pry
-    BCrypt::Password.new password
+  def self.authenticate params
+    user = User.first username: params[:username]
+    user if user && BCrypt::Password.new(user.password_digest) == params[:password]
   end
+
 end
