@@ -23,6 +23,7 @@ class User
   end
 
   def self.authenticate password
-    BCrypt::Password.create password
+    binding.pry
+    BCrypt::Password.new password
   end
 end

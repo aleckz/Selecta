@@ -61,18 +61,20 @@ class Selecta < Sinatra::Base
     erb :index
   end
 
-  post '/sessions' do
+  post '/session' do
     encrypted_password = User.authenticate params[:password]
 
-    user = User.first(
+    user = User.(
       username: params[:username],
       password: encrypted_password
     )
-    if user 
+    if user
+    binding.pry
       session[:user_id] = user.id
-       content_type :json
+      content_type :json
       {userRetreived: true}.to_json
     else
+    binding.pry
       content_type :json
       {userRetreived: false}.to_json
     end
@@ -84,10 +86,9 @@ class Selecta < Sinatra::Base
     end
   end
 
-  def current_user 
+  def current_user
     session[:user_id]
   end
 
   run! if app_file == $0
 end
-
