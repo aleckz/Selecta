@@ -3,6 +3,8 @@
 <head>
   <title>Selecta</title>
   <link href='http://fonts.googleapis.com/css?family=Delius+Unicase:400,700' rel='stylesheet' type='text/css'>
+
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
@@ -16,11 +18,35 @@
   </div>
 
   <div id="sign_in_up">
-   <button class="button">Log in</button>
-   <button class="button">Sign up</button>
+   <a href="#openModal-log_in"><button class="button">Log in</button></a>
+   <a href="#openModal-sign_up"><button class="button">Sign up</button></a>
   </div>
 
 </header>
+
+<div id="openModal-log_in" class="modalDialog">
+  <div>
+    <a href="#close" title="Close" class="close">X</a>
+    <h2>Log in</h2>
+    <label></label>
+  </div>
+</div>
+
+<div id="openModal-sign_up" class="modalDialog">
+  <div>
+    <a href="#close" title="Close" class="close">X</a>
+    <h2>Sign up</h2>
+
+    <label for="email">Email:
+      <input type="text" name="email">
+    </label>
+
+     <label for="email">Username:
+      <input type="text" name="username">
+    </label>
+
+  </div>
+</div>
 
 
 
@@ -29,12 +55,14 @@
 
 
 <!-- <div id="video_player"></div> -->
+<p id="democratic">Democratic music.</p>
 
 
 
 <main class="clearfix box">
 
 <div id="search_frame" class="clearfix box">
+
 
 <gcse:search></gcse:search>
 </div>
@@ -46,50 +74,20 @@
   <div class="wrap">
       <div class="video">
         <iframe width="400" height="225" src=<%="https://www.youtube.com/embed/#{link.url}" %> frameborder="0" allowfullscreen></iframe>
+        <a href=""><img id="vinyl" src="img/vinyl1.png"></a>
         <p><%=link.likes.count%> likes</p>
       </div>
   </div>
   <% end %>
 
-  <!-- <div class="wrap">
-    <div class="video">
-      <iframe width="400" height="225" src="https://www.youtube.com/embed/QjCiLzm-0kI" frameborder="0" allowfullscreen></iframe>
-      <p>Like</p>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <div class="video">
-      <iframe width="400" height="225" src="https://www.youtube.com/embed/5Xj-PNIF_Ts" frameborder="0" allowfullscreen></iframe>
-      <p>Like</p>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <div class="video">
-      <iframe width="400" height="225" src="https://www.youtube.com/embed/Yq5t_TBZq1I" frameborder="0" allowfullscreen></iframe>
-      <p>Like</p>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <div class="video">
-      <iframe width="400" height="225" src="https://www.youtube.com/embed/YkADj0TPrJA" frameborder="0" allowfullscreen></iframe>
-      <p>Like</p>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <div class="video">
-      <iframe width="400" height="225" src="https://www.youtube.com/embed/Kjgwjh4H7wg" frameborder="0" allowfullscreen></iframe>
-      <p>Like</p>
-    </div>
-  </div> -->
 
   </div>
 
 
 </main>
+
+
+<footer>&nbsp;</footer>
 
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="javascript/main.js"></script>

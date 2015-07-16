@@ -37,6 +37,7 @@ class Selecta < Sinatra::Base
       url:     params[:url     ],
       user_id: current_user
     )
+    binding.pry
     if link.save
       flash[:notice] = 'Submission successful'
     else
