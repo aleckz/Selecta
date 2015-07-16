@@ -28,10 +28,10 @@ class Selecta < Sinatra::Base
       session[:user_id] = user.id
 
       content_type :json
-      {userCreated: true, notice: "Welcome #{user.username}"}.to_json
+      {userCreated: true}.to_json
     else
       content_type :json
-      {userCreated: false, notice: user.errors.full_messages}.to_json
+      {userCreated: false}.to_json
     end
 
   end
@@ -48,7 +48,7 @@ class Selecta < Sinatra::Base
       flash.now[:errors] = link.errors.full_messages
     end
 
-    erb :index
+    redirect '/'
   end
 
   post '/like' do
@@ -61,12 +61,22 @@ class Selecta < Sinatra::Base
     erb :index
   end
 
-
   post '/sessions' do
-    
+    encrypted_password = User.authenticate params[:password]
 
+    user = User.first(
+      username: params[:username],
+      password: encrypted_password
+    )
+    if user 
+      session[:user_id] = user.id
+       content_type :json
+      {userRetreived: true}.to_json
+    else
+      content_type :json
+      {userRetreived: false}.to_json
+    end
   end
-
 
   def already_liked? link_id_checked
     User.get(session[:user_id]).likes.any? do |like|
@@ -74,9 +84,9 @@ class Selecta < Sinatra::Base
     end
   end
 
-def current_user 
-  session[:user_id]
-end
+  def current_user 
+    session[:user_id]
+  end
 
   run! if app_file == $0
 end
