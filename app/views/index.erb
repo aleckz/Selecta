@@ -19,11 +19,15 @@
 
   <% if @current_user %>
 
-    <p>hello <%= @current_user.username %></p>
+    <div id="logout_div_style">
 
-      <form method="POST" action="/logout">
-        <input type="submit" id="log_out" value="Log out">
-      </form>
+      <p>hello <%= @current_user.username %></p>
+
+        <form method="POST" action="/logout">
+          <button class="button" id="logout_button" type="submit" id="log_out" value="Log out">Log out</button>
+        </form>
+
+      </div>
 
   <% else %>
 
