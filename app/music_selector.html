@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <script type="text/javascript" src="./music_selector_api.js"></script>
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+
+  <body onload="initialize()">
+    <form id="form" action="/link" method="POST">
+      <input id='link_url' name='url' disabled='true' size=100 >
+      <input type="submit" value="Add">
+    </form>
+
+    <gcse:search></gcse:search>
+  </body>
+
+</html>
