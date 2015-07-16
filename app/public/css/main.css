@@ -184,6 +184,12 @@ main {
 
 .close:hover { background: #00d9ff; }
 
+.error_display {
+  background-color: red;
+  color: white;
+}
+
+
 
 footer {
   background-color: rgba(27,28,33,0.7);

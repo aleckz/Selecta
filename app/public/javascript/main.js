@@ -38,9 +38,9 @@ $('.wrap').on('mouseout', function() {
 
 
 $('#sign_up_button').click( function () {
-    var email = $('#email').val();
-    var username = $('#username').val();
-    var password = $('#password').val();
+    var email     = $('#email').val();
+    var username  = $('#username').val();
+    var password  = $('#password').val();
     var passwConf = $('#passw_conf').val();
 
     $.post('/user', {
@@ -52,7 +52,29 @@ $('#sign_up_button').click( function () {
         if (data.userCreated) {
             window.location.href= '/';
         } else {
-            $('#error').html('Error fuck it!!!');
+            $('#error_display').append('<p>Error fuck it!!!</p>');
         }
     });
 });
+
+
+$('#log_in_button').click( function () {
+    var username = $('#username').val();
+    var password = $('#password').val();
+
+    $.post('/user', {
+        username:              username,
+        password:              password,
+    }, function(data) {
+        if (data.userRetrieved) {
+            window.location.href= '/';
+        } else {
+            $('#error_display').append('<p>Error fuck it!!!</p>');
+        }
+    });
+});
+
+
+
+
+
