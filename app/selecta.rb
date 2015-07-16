@@ -19,8 +19,10 @@ class Selecta < Sinatra::Base
 
   post '/user' do
     user = User.new(
-      username: params[:username],
-      email:    params[:email   ]
+      username:              params[:username],
+      email:                 params[:email   ],
+      password:              params[:password],
+      password_confirmation: params[:password_confirmation]
     )
     if user.save
       session[:user_id] = user.id
@@ -59,6 +61,13 @@ class Selecta < Sinatra::Base
 
     erb :index
   end
+
+
+  post '/sessions' do
+    User
+
+  end
+
 
   def already_liked? link_id_checked
     User.get(session[:user_id]).likes.any? do |like|
