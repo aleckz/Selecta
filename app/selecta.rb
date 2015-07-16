@@ -1,18 +1,18 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './data_mapper_setup'
+require 'pry'
+
 
 class Selecta < Sinatra::Base
   
   enable :sessions
   set :session_secret, 'secret'
   register Sinatra::Flash
-
-  run! if app_file == $0
+  set :views, proc {File.join(root, '.', 'views')}
   
   get '/' do
     @links = Link.all.sort_by { |link| -link.likes.count }
-
     erb :index
   end
 
@@ -35,12 +35,12 @@ class Selecta < Sinatra::Base
     link = Link.new(
       title:   params[:title   ],
       url:     params[:url     ],
-      user_id: session[:user_id]
+      user_id: params[:user_id]
     )
     if link.save
       flash[:notice] = 'Submission successful'
     else
-      flash.now[:errors] = user.errors.full_messages
+      flash.now[:errors] = link.errors.full_messages
     end
 
     erb :index
@@ -62,4 +62,9 @@ class Selecta < Sinatra::Base
     end
   end
 
+
+  run! if app_file == $0
 end
+
+
+#current user
