@@ -14,9 +14,10 @@
 
 function handler(e){
     if(e.target.className=="gs-title" || e.target.className=='gs-image') {
-        e.stopPropagation();
         e.preventDefault();
-        embedCode = e.target.getAttribute('data-ctorig').split('=')[1];
+        // e.stopPropagation();
+
+        var embedCode = e.target.getAttribute('data-ctorig').split('=')[1];
         $.post('/link', {url: embedCode});
     }
 };
