@@ -78,7 +78,6 @@ $('.vinyl').click( function (e) {
     e.preventDefault();
     console.log(e.target.id);
     $.post("/like", { link_id: e.target.id }, function(data) {
-    $(".likes_counter").html(data.likes)
     })
     location.reload();
 });
