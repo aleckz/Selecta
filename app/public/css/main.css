@@ -50,6 +50,7 @@ header {
 
 
 main {
+  font-size: 0.7em;
   text-align: center;
   background-color: rgba(228,228,222,1);
   width: 100%;
@@ -92,6 +93,10 @@ main {
 .wrap:hover {
   background-color: rgba(99,174,235,0.6);
 }
+
+/*.logout_div_style {
+  margin-top: 53px;
+}*/
 
 .video {
   margin: auto;
