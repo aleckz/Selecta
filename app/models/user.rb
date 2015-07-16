@@ -4,13 +4,13 @@ require 'bcrypt'
 class User
   include DataMapper::Resource
 
-  attr_accessor :password_confirmation
   attr_reader   :password
+  attr_accessor :password_confirmation
 
   property :id,              Serial
   property :username,        String, required: true
   property :email,           String, required: true
-  property :password_digest, String
+  property :password_digest, Text
 
   has n, :links
   has n, :likes

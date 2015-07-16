@@ -1,8 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/flash'
-require_relative './data_mapper_setup'
 require 'pry'
 require 'json'
+require_relative './data_mapper_setup'
 
 
 class Selecta < Sinatra::Base
@@ -34,7 +34,6 @@ class Selecta < Sinatra::Base
       {userCreated: false, notice: user.errors.full_messages}.to_json
     end
 
-    erb :index
   end
 
   post '/link' do
