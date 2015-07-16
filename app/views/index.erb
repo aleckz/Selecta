@@ -46,7 +46,7 @@
   <div class="wrap">
       <div class="video">
         <iframe width="400" height="225" src=<%="https://www.youtube.com/embed/#{link.url}" %> frameborder="0" allowfullscreen></iframe>
-        <p>Like</p>
+        <p><%=link.likes.count%> likes</p>
       </div>
   </div>
   <% end %>
