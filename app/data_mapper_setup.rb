@@ -12,4 +12,4 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/selecta_
   require './app/models/user'
 
 DataMapper.finalize
-DataMapper.auto_migrate!
+DataMapper.auto_migrateå!
