@@ -8,6 +8,8 @@ gem 'dm-postgres-adapter'
 gem 'dm-timestamps'
 gem 'sinatra-flash'
 gem 'pry'
+gem 'json'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'

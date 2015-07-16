@@ -109,10 +109,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   data_mapper
   dm-postgres-adapter
   dm-timestamps
+  json
   pry
   rspec
   sinatra
