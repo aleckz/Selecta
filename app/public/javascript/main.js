@@ -13,21 +13,17 @@
 
 
 function handler(e){
-    e.preventDefault();
-    if (e.target.nodeName=='B') {
+    if(e.target.className=="gs-title" || e.target.className=='gs-image') {
+        e.preventDefault();
+        var embedCode = e.target.getAttribute('data-ctorig').split('=')[1];
+        $.post('/link', {url: embedCode, user_id: '1'});
+        location.reload();
+    } else if (e.target.nodeName=='B') {
+        e.preventDefault();
         var embedCode = e.target.parentNode.getAttribute('data-ctorig').split('=')[1];
-        console.log(e.target.parentNode.getAttribute('data-ctorig').split('=')[1]);
         $.post('/link', {url: embedCode, user_id: '1'});
         location.reload();
     };
-    if(e.target.className=="gs-title" || e.target.className=='gs-image') {
-        e.preventDefault();
-        // e.stopPropagation();
-
-        var embedCode = e.target.getAttribute('data-ctorig').split('=')[1];
-        $.post('/link', {url: embedCode});
-        location.reload();
-    }
 };
 
 document.addEventListener("click", handler, true);
