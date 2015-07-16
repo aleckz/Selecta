@@ -189,6 +189,11 @@ main {
   color: white;
 }
 
+.error_display_log_in {
+  background-color: red;
+  color: white;
+}
+
 
 
 footer {

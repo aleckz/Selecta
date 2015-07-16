@@ -52,7 +52,8 @@ $('#sign_up_button').click( function () {
         if (data.userCreated) {
             window.location.href= '/';
         } else {
-            $('#error_display').append('<p>Error fuck it!!!</p>');
+            console.log('test')
+            $('.error_display').append('<p>Error fuck it!!!</p>');
         }
     });
 });
@@ -69,7 +70,7 @@ $('#log_in_button').click( function () {
         if (data.userRetrieved) {
             window.location.href= '/';
         } else {
-            $('#error_display').append('<p>Error fuck it!!!</p>');
+            $('.error_display_log_in').append('<p>Error fuck it!!!</p>');
         }
     });
 });
