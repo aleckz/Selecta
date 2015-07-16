@@ -5,12 +5,12 @@ require 'pry'
 
 
 class Selecta < Sinatra::Base
-  
+
   enable :sessions
   set :session_secret, 'secret'
   register Sinatra::Flash
   set :views, proc {File.join(root, '.', 'views')}
-  
+
   get '/' do
     @links = Link.all.sort_by { |link| -link.likes.count }
     erb :index
@@ -62,8 +62,8 @@ class Selecta < Sinatra::Base
     end
   end
 
-def current_user 
-  @user session[:user_id]
+def current_user
+  session[:user_id]
 end
 
   run! if app_file == $0
