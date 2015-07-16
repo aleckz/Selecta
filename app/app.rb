@@ -5,8 +5,8 @@ require 'json'
 require_relative './data_mapper_setup'
 
 class Selecta < Sinatra::Base
-
   enable :sessions
+
   set :session_secret, 'secret'
   set :views, proc {File.join(root, '.', 'views')}
 
@@ -18,5 +18,4 @@ class Selecta < Sinatra::Base
   require_relative 'routes/home'
 
   run! if app_file == $0
-
 end
