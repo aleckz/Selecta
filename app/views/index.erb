@@ -24,31 +24,43 @@
 
 </header>
 
+<div id="style_pop_up">
+
 <div id="openModal-log_in" class="modalDialog">
   <div>
     <a href="#close" title="Close" class="close">X</a>
     <h2>Log in</h2>
-    <label></label>
+
+     <label for="username">Username:
+      <input id="username" type="text" name="username">
+    </label>
+
+    <label for="password">Password:
+      <input id="password" type="password" name="password">
+    </label>
+
+    <button id="log_in_button">Log in</button>
+
+    <div class="error_display"></div>
+
   </div>
 </div>
 
 <div id="openModal-sign_up" class="modalDialog">
   <div>
     <a href="#close" title="Close" class="close">X</a>
-    <h2>Sign up</h2>
-
-    <div id="error_display"></div>
+    <h2 id="test">Sign up</h2>
 
 
     <label for="email">Email:
       <input id="email" type="text" name="email">
     </label>
 
-     <label for="email">Username:
+     <label for="username">Username:
       <input id="username" type="text" name="username">
     </label>
 
-    <label for="email">Password:
+    <label for="password">Password:
       <input id="password" type="text" name="password">
     </label>
 
@@ -58,7 +70,11 @@
 
     <button id="sign_up_button">Sign up</button>
 
+    <div class="error_display"></div>
+
   </div>
+</div>
+
 </div>
 
 
