@@ -4,7 +4,6 @@ require 'pry'
 require 'json'
 require_relative './data_mapper_setup'
 
-
 class Selecta < Sinatra::Base
 
   enable :sessions
@@ -13,7 +12,7 @@ class Selecta < Sinatra::Base
   set :views, proc {File.join(root, '.', 'views')}
 
   get '/' do
-    @links = Link.all.sort_by { |link| -link.likes.count }
+    @links = Link.all.sort_by { |link| link.likes.count }.reverse
     @current_user = User.get current_user
 
     erb :index
@@ -35,7 +34,6 @@ class Selecta < Sinatra::Base
       content_type :json
       {userCreated: false}.to_json
     end
-
   end
 
   post '/link' do
@@ -60,7 +58,10 @@ class Selecta < Sinatra::Base
     )
     like.save unless already_liked? params[:link_id]
 
-    erb :index
+    number_of_likes = Link.get(params[:link_id]).likes.count
+
+    content_type :json
+    {likes: number_of_likes}.to_json
   end
 
   post '/session' do
