@@ -5,12 +5,12 @@ require 'pry'
 
 
 class Selecta < Sinatra::Base
-  
+
   enable :sessions
   set :session_secret, 'secret'
   register Sinatra::Flash
   set :views, proc {File.join(root, '.', 'views')}
-  
+
   get '/' do
     @links = Link.all.sort_by { |link| -link.likes.count }
     erb :index
@@ -37,6 +37,7 @@ class Selecta < Sinatra::Base
       url:     params[:url     ],
       user_id: params[:user_id]
     )
+    binding.pry
     if link.save
       flash[:notice] = 'Submission successful'
     else
