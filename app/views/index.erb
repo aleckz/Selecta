@@ -37,13 +37,26 @@
     <a href="#close" title="Close" class="close">X</a>
     <h2>Sign up</h2>
 
+    <div id="error_display"></div>
+
+
     <label for="email">Email:
-      <input type="text" name="email">
+      <input id="email" type="text" name="email">
     </label>
 
      <label for="email">Username:
-      <input type="text" name="username">
+      <input id="username" type="text" name="username">
     </label>
+
+    <label for="email">Password:
+      <input id="password" type="text" name="password">
+    </label>
+
+    <label for="email">Password confirmation:
+      <input id="passw_conf" type="text" name="password-confirmation">
+    </label>
+
+    <button id="sign_up_button">Sign up</button>
 
   </div>
 </div>
@@ -52,11 +65,7 @@
 
 <div id="logo_banner">&nbsp;</div>
 
-
-
-<!-- <div id="video_player"></div> -->
-<p id="democratic"> Selecta tune - Submit a tune - Democratic music.</p>
-
+<p id="democratic">Selecta tune - Submit a tune - Democratic music.</p>
 
 
 <main class="clearfix box">
@@ -74,7 +83,7 @@
   <div class="wrap">
       <div class="video">
         <iframe width="400" height="225" src=<%="https://www.youtube.com/embed/#{link.url}" %> frameborder="0" allowfullscreen></iframe>
-        <a href=""><img id="vinyl" src="img/vinyl1.png"></a>
+        <a href=""><img class="vinyl" src="img/vinyl1.png"></a>
         <p><%=link.likes.count%> likes</p>
       </div>
   </div>

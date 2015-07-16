@@ -102,16 +102,12 @@ main {
   margin: auto;
 }
 
-#vinyl {
+.vinyl {
   width: 33px;
   float: left;
 }
 
-#vinyl:hover {
-  src: 'img/vinyl2.png';
-  width: 33px;
-  float: left;
-}
+
 
 #logo {
   margin-top: 18px;
