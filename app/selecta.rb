@@ -67,7 +67,7 @@ class Selecta < Sinatra::Base
   end
 
 def current_user 
-  @user session[:user_id]
+  session[:user_id]
 end
 
   run! if app_file == $0
