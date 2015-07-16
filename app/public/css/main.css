@@ -94,9 +94,9 @@ main {
   background-color: rgba(99,174,235,0.6);
 }
 
-/*.logout_div_style {
+.logout_div_style {
   margin-top: 53px;
-}*/
+}
 
 .video {
   margin: auto;
@@ -112,6 +112,9 @@ main {
   float: left;
 }
 
+.likes_counter {
+  margin-top: 10px;
+}
 
 
 #logo {
@@ -157,7 +160,7 @@ main {
 }
 
 .modalDialog > div {
-  width: 400px;
+  width: 500px;
   position: relative;
   margin: 10% auto;
   padding: 5px 20px 13px 20px;
@@ -205,6 +208,25 @@ main {
   font-size: 0.8em;
 }
 
+#style_pop_up {
+  font-size: 0.7em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+.button_inside_pop_up {
+  background-color: rgba(99,174,235,0.8);
+  padding:8px 13px;
+   -webkit-border-radius:6px;
+  -moz-border-radius:6px;
+  border-radius: 6px;
+    font:16px Arial, Helvetica, sans-serif;
+  font-weight:bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 footer {
   background-color: rgba(27,28,33,0.7);
