@@ -17,10 +17,22 @@
     <p id="title">selecta</p>
   </div>
 
-  <div id="sign_in_up">
-   <a href="#openModal-log_in"><button class="button">Log in</button></a>
-   <a href="#openModal-sign_up"><button class="button">Sign up</button></a>
-  </div>
+  <% if @current_user %>
+
+    <p>hello <%= @current_user.username %></p>
+
+      <form method="POST" action="/logout">
+        <input type="submit" id="log_out" value="Log out">
+      </form>
+
+  <% else %>
+
+    <div id="sign_in_up">
+     <a href="#openModal-log_in"><button class="button">Log in</button></a>
+     <a href="#openModal-sign_up"><button class="button">Sign up</button></a>
+    </div>
+
+  <% end %>
 
 </header>
 

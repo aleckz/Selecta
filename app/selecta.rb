@@ -14,6 +14,8 @@ class Selecta < Sinatra::Base
 
   get '/' do
     @links = Link.all.sort_by { |link| -link.likes.count }
+    @current_user = User.get current_user
+
     erb :index
   end
 
@@ -72,6 +74,12 @@ class Selecta < Sinatra::Base
       content_type :json
       {userRetrieved: false}.to_json
     end
+  end
+
+  post '/logout' do
+    session[:user_id] = nil
+
+    redirect '/'
   end
 
   def already_liked? link_id_checked
