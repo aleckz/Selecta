@@ -32,3 +32,31 @@ $('.wrap').on('mouseover', function() {
 $('.wrap').on('mouseout', function() {
   $(this).find('img').attr('src', 'img/vinyl1.png');
 });
+
+
+$('#sign_up_button').click( function () {
+    var email = $('#email').val();
+    var username = $('#username').val();
+    var password = $('#password').val();
+    var passwConf = $('#passw_conf').val();
+
+    $.post('/user', {
+        username:              username,
+        email:                 email,
+        password:              password,
+        password_confirmation: passwConf
+    }, function(data) {
+        if (data.userCreated) {
+            window.location.href= '/';
+        } else {
+            $('#error').html('Error fuck it!!!');
+        }
+    })
+});
+
+
+
+
+
+
+
