@@ -25,3 +25,10 @@ function handler(e){
 document.addEventListener("click", handler, true);
 
 
+$('.wrap').on('mouseover', function() {
+  $(this).find('img').attr('src', 'img/vinyl2.png');
+});
+
+$('.wrap').on('mouseout', function() {
+  $(this).find('img').attr('src', 'img/vinyl1.png');
+});
