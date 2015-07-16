@@ -14,13 +14,14 @@ function initialize() {
 
   document.addEventListener("click",handler,true);
 
+
   function handler(e){
-     if(e.target.className=="gs-title" || e.target.className=='gs-image') {
+    if(e.target.className=="gs-title" || e.target.className=='gs-image') {
      e.stopPropagation();
      e.preventDefault();
-     link = e.target.getAttribute('href').split('=')[1];
-     getLink();
-   }
+     link = e.target.getAttribute('data-ctorig').split('=')[1]
+    }
+    getLink();
   }
 
   function getLink() {
@@ -29,7 +30,6 @@ function initialize() {
       document.getElementById(component).value = '';
       document.getElementById(component).disabled = false;
     }
-
     var val = componentForm.link_url = url_id;
     document.getElementById('link_url').value = val;
   }
