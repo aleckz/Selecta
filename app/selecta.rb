@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './data_mapper_setup'
 require 'pry'
+require 'json'
 
 
 class Selecta < Sinatra::Base
@@ -23,9 +24,12 @@ class Selecta < Sinatra::Base
     )
     if user.save
       session[:user_id] = user.id
-      flash[:notice] = "Welcome user"
+
+      content_type :json
+      {userCreated: true, notice: "Welcome #{user.username}"}.to_json
     else
-      flash.now[:errors] = user.errors.full_messages
+      content_type :json
+      {userCreated: false, notice: user.errors.full_messages}.to_json
     end
 
     erb :index
@@ -33,8 +37,8 @@ class Selecta < Sinatra::Base
 
   post '/link' do
     link = Link.new(
-      title:   params[:title   ],
-      url:     params[:url     ],
+      title:   params[:title],
+      url:     params[:url  ],
       user_id: current_user
     )
     if link.save
@@ -69,5 +73,3 @@ end
   run! if app_file == $0
 end
 
-
-#current user
