@@ -67,10 +67,10 @@ class Selecta < Sinatra::Base
     if user
       session[:user_id] = user.id
       content_type :json
-      {userRetreived: true}.to_json
+      {userRetrieved: true}.to_json
     else
       content_type :json
-      {userRetreived: false}.to_json
+      {userRetrieved: false}.to_json
     end
   end
 
