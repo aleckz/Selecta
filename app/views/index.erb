@@ -19,11 +19,15 @@
 
   <% if @current_user %>
 
-    <p>hello <%= @current_user.username %></p>
+    <div id="logout_div_style">
 
-      <form method="POST" action="/logout">
-        <input type="submit" id="log_out" value="Log out">
-      </form>
+      <p>hello <%= @current_user.username %></p>
+
+        <form method="POST" action="/logout">
+          <button class="button" id="logout_button" type="submit" id="log_out" value="Log out">Log out</button>
+        </form>
+
+      </div>
 
   <% else %>
 
@@ -111,8 +115,8 @@
   <div class="wrap">
       <div class="video">
         <iframe width="400" height="225" src=<%="https://www.youtube.com/embed/#{link.url}" %> frameborder="0" allowfullscreen></iframe>
-        <a href=""><img class="vinyl" src="img/vinyl1.png"></a>
-        <p><%=link.likes.count%> likes</p>
+        <a href=""><img id="<%=link.id%>" class="vinyl" src="img/vinyl1.png"></a>
+        <p class="likes_counter"><%=link.likes.count%> likes</p>
       </div>
   </div>
   <% end %>

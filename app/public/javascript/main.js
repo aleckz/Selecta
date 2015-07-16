@@ -52,7 +52,7 @@ $('#sign_up_button').click( function () {
         if (data.userCreated) {
             window.location.href= '/';
         } else {
-            $('.error_display').append('<p>Error fuck it!!!</p>');
+            $('.error_display').append('<p>Error</p>');
         }
     });
 });
@@ -69,7 +69,26 @@ $('#log_in_button').click( function () {
         if (data.userRetrieved) {
             window.location.href= '/';
         } else {
-            $('.error_display_log_in').append('<p>Error fuck it!!!</p>');
+            $('.error_display_log_in').append('<p>Error</p>');
         }
     });
 });
+
+
+$('.vinyl').click( function (e) {
+    e.preventDefault();
+    console.log(e.target.id);
+    $.post("/like", { link_id: e.target.id }, function(data) {
+    $(".likes_counter").html(data.likes)
+    })
+    location.reload();
+});
+
+
+
+
+
+
+
+
+
