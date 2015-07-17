@@ -10,4 +10,8 @@ class Link
 
   has n,      :likes
   belongs_to  :user
+
+  def self.number_of_likes params
+    Link.get(params[:link_id]).likes.count
+  end
 end

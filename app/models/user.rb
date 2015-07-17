@@ -27,4 +27,10 @@ class User
     user if user && BCrypt::Password.new(user.password_digest) == params[:password]
   end
 
+  def self.have_already_liked? link_id_checked, session
+    User.get(session[:user_id]).likes.any? do |like|
+      like.link_id == link_id_checked
+    end
+  end
+
 end

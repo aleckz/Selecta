@@ -1,21 +1,27 @@
 
 class Selecta < Sinatra::Base
   post '/like' do
-    like = Like.new(
-      user_id: current_user,
-      link_id: params[:link_id]
-    )
-    like.save unless already_liked? params[:link_id]
-
-    number_of_likes = Link.get(params[:link_id]).likes.count
+    if not User.have_already_liked? params[:link_id], session
+      create_like user_and_link_id(params) 
+    end
 
     content_type :json
-    {likes: number_of_likes}.to_json
+    {likes: number_of_likes(params)}.to_json
   end
 
-  def already_liked? link_id_checked
-    User.get(session[:user_id]).likes.any? do |like|
-      like.link_id == link_id_checked
-    end
+  def user_and_link_id params
+    {
+      user_id: current_user,
+      link_id: params[:link_id]
+    }
+  end
+
+  def create_like user_and_link_id
+    Like.create user_and_link_id
+  end
+
+  def number_of_likes params
+    Link.number_of_likes params
   end
 end
+
