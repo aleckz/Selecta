@@ -14,4 +14,10 @@ class Link
   def self.number_of_likes params
     Link.get(params[:link_id]).likes.count
   end
+
+  def self.retrieve_by_number_of_likes
+    Link.all.sort_by do |link| 
+      link.likes.count 
+    end.reverse
+  end
 end
