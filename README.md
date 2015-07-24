@@ -1,4 +1,4 @@
 # Selecta
 
 Sample Page:
-![sample](/public/images/sample.png)
+![sample](/app/public/images/sample.png)
