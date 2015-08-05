@@ -5,7 +5,7 @@ env = ENV['RACK_ENV'] || 'development'
 
 DataMapper::Logger.new($stdout, :debug)
 
-DataMapper.setup(:default, "postgres://localhost/selecta_#{env}")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/selecta_#{env}")
 
   require './app/models/like'
   require './app/models/link'
